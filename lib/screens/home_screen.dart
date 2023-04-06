@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (pageNo == 2) {
         pageNo = 0;
       }
-      pageController.animateToPage(
+      var animateToPage = pageController.animateToPage(
         pageNo,
         duration: const Duration(seconds: 1),
         curve: Curves.easeInOutCirc,
@@ -82,6 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 Widget build(BuildContext context) {
 	return Scaffold(
+    extendBodyBehindAppBar:true,
     appBar: AppBar(
         title: const Text(
           "Search",
@@ -107,7 +108,9 @@ Widget build(BuildContext context) {
           child: Column(
             children: [
               const SizedBox(
-                height: 36.0,
+                height: 0.0,
+                width: double.maxFinite,
+                
               ),
               Padding(
                 padding: const EdgeInsets.all(24.0),
@@ -160,7 +163,7 @@ Widget build(BuildContext context) {
                 ),
               ),
               SizedBox(
-                height: 200,
+                height: 120,
                 child: PageView.builder(
                   controller: pageController,
                   onPageChanged: (index) {
@@ -200,7 +203,7 @@ Widget build(BuildContext context) {
                       ),
                     );
                   },
-                  itemCount: 5,
+                  itemCount: 1,
                 ),
               ),
               const SizedBox(
